@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: enviorments/dev
+        working-directory: ./enviorments/dev
 
     steps:
       # Step 1: Checkout repo
@@ -36,6 +36,7 @@ jobs:
       # Step 5: Plan
       - name: Terraform Plan
         run: terraform plan
+
 
 
 
