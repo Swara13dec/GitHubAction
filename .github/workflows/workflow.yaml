@@ -3,7 +3,7 @@ name: Terraform se workflow bnya
 on:
   push:
     branches:
-      - main   # jab bhi main branch me push hoga
+      - feature/**   # jab bhi main branch me push hoga
   pull_request:   # PR pe bhi chalega
 
 jobs:
@@ -32,3 +32,4 @@ jobs:
       # Step 5: Plan
       - name: Terraform Plan
         run: terraform plan
+
