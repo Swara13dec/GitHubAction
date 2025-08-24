@@ -1,0 +1,38 @@
+name: Terraform se workflow bnya
+
+on:
+  push:
+    branches:
+      - feature/**   # jab bhi feature branch me push hoga
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./Enviorments/dev
+
+    steps:
+      # Step 1: Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6   # apni version dal sakte ho
+
+      # Step 3: Initialize
+      - name: Terraform Init
+        run: terraform init
+
+      # Step 4: Validate
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Step 5: Plan
+      - name: Terraform Plan
+        run: terraform plan
